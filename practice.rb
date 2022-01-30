@@ -27,3 +27,50 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+ben_balance = 0
+brian_balance = 0 
+evan_balance = 0 
+anthony_balance = 0 
+
+# if blockchain[0][:to_user] == "ben" || blockchain[6][:to_user] == "ben"
+#   puts blockchain[0][:amount] + blockchain[6][:amount]
+# end
+
+# blockchain = [
+#   { from_user: nil, to_user: "ben", amount: 20000 },
+#   { from_user: nil, to_user: "brian", amount: 20000 },
+#   { from_user: "ben", to_user: "evan", amount: 9000 },
+#   { from_user: "brian", to_user: "anthony", amount: 7000 },
+#   { from_user: "evan", to_user: "anthony", amount: 400 },
+#   { from_user: "ben", to_user: "anthony", amount: 1500 },
+#   { from_user: "anthony", to_user: "ben", amount: 4500 },
+#   { from_user: "anthony", to_user: "evan", amount: 1750 }
+# ]
+
+for transaction in blockchain
+  if transaction [:to_user] == "ben"
+    ben_balance = ben_balance + transaction[:amount]
+  elsif transaction [:to_user] == "brian"
+    brian_balance = brian_balance + transaction[:amount]
+  elsif transaction [:to_user] == "evan"
+    evan_balance = evan_balance + transaction[:amount]
+  elsif transaction [:to_user] == "anthony"
+    anthony_balance = anthony_balance + transaction[:amount]
+  end
+  if transaction [:from_user] == "ben"
+    ben_balance = ben_balance - transaction[:amount]
+  elsif transaction [:from_user] == "brian"
+    brian_balance = brian_balance - transaction[:amount]
+  elsif transaction [:from_user] == "evan"
+    evan_balance = evan_balance - transaction[:amount]
+  elsif transaction [:from_user] == "anthony"
+    anthony_balance = anthony_balance - transaction[:amount]
+  end
+end
+
+
+puts "Ben's KelloggCoin balance is #{ben_balance}"
+puts "Brian's KelloggCoin balance is #{brian_balance}"
+puts "Evan's KelloggCoin balance is #{evan_balance}"
+puts "Anthony's KelloggCoin balance is #{anthony_balance}"
